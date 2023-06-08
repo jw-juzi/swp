@@ -35,6 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     # 'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # 自定义模块
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -52,7 +55,9 @@ ROOT_URLCONF = 'swp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, "static")
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,3 +123,6 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
